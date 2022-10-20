@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Plant;
+use DB;
 
 class PlantController extends Controller
 {
@@ -24,9 +25,9 @@ class PlantController extends Controller
         
         // use DB;
         // $plant = Plant::whereRaw(DB::raw('lower(`title`)'), 'like',  '%' . $searchTerm . '%')->get(); 
-        $plant = Plant::whereRaw("title COLLATE UTF8_GENERAL_CI LIKE %{$searchTerm}%")->get();
+        // $plant = Plant::whereRaw("title COLLATE UTF8_GENERAL_CI LIKE %{$searchTerm}%")->get();
         // strtolower($searchTerm)
-        
+        $plant = Plant::where(DB::raw('lower(title)'), strtolower($searchTerm))->get();
         // $search = mb_strtolower(trim(request()->input('search')));
         // $plant = Plant::where('LOWER(`title`)', 'like',  '%' . $searchTerm . '%')->get();
         // ->toArray();
