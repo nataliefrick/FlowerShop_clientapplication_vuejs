@@ -22,7 +22,7 @@ class PlantController extends Controller
         // return Plant
 
         // $plant = Plant::where('title', 'like',  '%' . $searchTerm . '%')->get(); //works
-        $plant = Plant::whereRaw(('lower(title)'), 'like',  '%' . $searchTerm . '%')->get(); 
+        $plant = Plant::whereRaw(('lower(`title`)'), 'like',  '%' . $searchTerm . '%')->get(); 
         
         // strtolower($searchTerm)
         
