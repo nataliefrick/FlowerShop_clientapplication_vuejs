@@ -25,7 +25,7 @@ class AuthController extends Controller
         // incorrect values
         if($validatedUser->fails()) {
             return response()->json([
-                'message' => 'Oops, something went wrong, please try again',
+                'message' => 'Creditentials not found, please try again',
                 'error' => $validatedUser->errors()
             ], 401);
         }

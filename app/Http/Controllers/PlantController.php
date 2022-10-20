@@ -17,6 +17,11 @@ class PlantController extends Controller
         return Plant::all();
     }
 
+    
+    public function searchName($name) {
+        return Plant::where('name', 'like', '%' . $name . '%')->get();
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -96,4 +101,5 @@ class PlantController extends Controller
             return response()->json(['Plant not found.'], 404);
         }
     }
+
 }
