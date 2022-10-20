@@ -19,7 +19,7 @@ class PlantController extends Controller
     }
 
     
-    public function searchTitle($searchTerm) {
+    public function searchText($searchTerm) {
         // return Plant
         // $plant = Plant::where('title', 'like',  '%' . $searchTerm . '%')->get(); //works
         $plant = Plant::where(DB::raw('LOWER(title)'), 'like',  '%' . strtolower($searchTerm) . '%')->orWhere(DB::raw('LOWER(description)'), 'like',  '%' . strtolower($searchTerm) . '%')->get();
@@ -30,6 +30,14 @@ class PlantController extends Controller
             ], 404);
         }
 
+        return $plant;
+    }
+
+    public function lowStock($quantity) {
+        // return Plant
+        // $plant = Plant::where('title', 'like',  '%' . $searchTerm . '%')->get(); //works
+        $plant = Plant::where('quantity', '<',  $quantity)->get();
+                
         return $plant;
     }
 
