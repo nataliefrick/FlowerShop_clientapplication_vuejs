@@ -21,10 +21,19 @@ class PlantController extends Controller
     public function searchTitle($searchTerm) {
         // return Plant
 
-        $plant = Plant::where('title', 'like',  '%' . $searchTerm . '%')->get();
+        // $plant = Plant::where('title', 'like',  '%' . $searchTerm . '%')->get(); //works
+        $plant = Plant::where('LOWER(`title`)', 'like',  '%' . $searchTerm . '%')->get(); 
+        
+
         // $search = mb_strtolower(trim(request()->input('search')));
         // $plant = Plant::where('LOWER(`title`)', 'like',  '%' . $searchTerm . '%')->get();
         // ->toArray();
+
+        // User::query()
+        // ->where('name', 'LIKE', "%{$searchTerm}%")
+        // ->orWhere('email', 'LIKE', "%{$searchTerm}%")
+        // ->get();
+
         
         if ($plant == null) {
             return response()->json([
