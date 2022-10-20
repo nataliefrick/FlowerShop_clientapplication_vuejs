@@ -21,8 +21,12 @@ class PlantController extends Controller
     public function searchTitle($searchTerm) {
         // return Plant
 
-        $plant = Plant::where('title', 'like',  '%' . $searchTerm . '%')->get();
+        // $plant = Plant::where('title', 'like',  '%' . $searchTerm . '%')->get();
+        $plant = Plant::where(DB::raw('lower(title)'), strtolower($searchTerm))
+        ->get();
 
+        // ->toArray();
+        
         if ($plant == null) {
             return response()->json([
                 'No item matching this search term was found.'
