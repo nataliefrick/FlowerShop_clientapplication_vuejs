@@ -22,7 +22,7 @@ class PlantController extends Controller
     public function searchTitle($searchTerm) {
         // return Plant
         // $plant = Plant::where('title', 'like',  '%' . $searchTerm . '%')->get(); //works
-        $plant = Plant::where(DB::raw('LOWER(title)'), 'like',  '%' . $searchTerm. '%')->get();
+        $plant = Plant::where(DB::raw('LOWER(title)'), 'like',  '%' . strtolower($searchTerm) . '%')->get();
         // $plant = Plant::where(DB::raw('lower(title)'), strtolower($searchTerm))->get();
         
         // use DB;
