@@ -22,7 +22,8 @@ class PlantController extends Controller
         // return Plant
 
         // $plant = Plant::where('title', 'like',  '%' . $searchTerm . '%')->get();
-        $plant = Plant::whereRaw('LOWER(`title`) LIKE ? ',[trim(strtolower($searchTerm)).'%'])->get();
+        // $search = mb_strtolower(trim(request()->input('search')));
+        $plant = Plant::where('LOWER(`title`)', 'like',  '%' . $searchTerm . '%')->get();
         // ->toArray();
         
         if ($plant == null) {
