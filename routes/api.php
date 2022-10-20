@@ -18,7 +18,7 @@ use App\Http\Controllers\AuthController;
 
 // password protected 
 Route::resource('plants', PlantController::class)->middleware('auth:sanctum');
-Route::get('plants/search/title/{searchTerm}', [PlantController::class, 'searchTitle'])->middleware('auth:sanctum');
+Route::get('plants/search/{searchTerm}', [PlantController::class, 'searchTitle'])->middleware('auth:sanctum');
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 
 // public route
