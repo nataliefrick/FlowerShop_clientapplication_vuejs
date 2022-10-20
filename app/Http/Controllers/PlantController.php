@@ -22,12 +22,13 @@ class PlantController extends Controller
     public function searchTitle($searchTerm) {
         // return Plant
         // $plant = Plant::where('title', 'like',  '%' . $searchTerm . '%')->get(); //works
+        $plant = Plant::where(DB::raw('lower(title)'), $searchTerm)->get();
+        // $plant = Plant::where(DB::raw('lower(title)'), strtolower($searchTerm))->get();
         
         // use DB;
         // $plant = Plant::whereRaw(DB::raw('lower(`title`)'), 'like',  '%' . $searchTerm . '%')->get(); 
         // $plant = Plant::whereRaw("title COLLATE UTF8_GENERAL_CI LIKE %{$searchTerm}%")->get();
         // strtolower($searchTerm)
-        $plant = Plant::where(DB::raw('lower(title)'), strtolower($searchTerm))->get();
         // $search = mb_strtolower(trim(request()->input('search')));
         // $plant = Plant::where('LOWER(`title`)', 'like',  '%' . $searchTerm . '%')->get();
         // ->toArray();
