@@ -17,7 +17,7 @@ class PlantController extends Controller
         return Plant::all();
     }
 
-    // 'like',  '%' .  . '%'
+    
     public function searchTitle($searchTerm) {
         // return Plant
 
@@ -30,7 +30,6 @@ class PlantController extends Controller
         }
 
         return $plant;
-    }
     }
 
     /**
