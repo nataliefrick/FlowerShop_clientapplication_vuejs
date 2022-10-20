@@ -17,9 +17,20 @@ class PlantController extends Controller
         return Plant::all();
     }
 
-    
-    public function searchName($name) {
-        return Plant::where('name', 'like', '%' . $name . '%')->get();
+    // 'like',  '%' .  . '%'
+    public function searchTitle($searchTerm) {
+        // return Plant
+
+        $plant = Plant::where('title', 'like',  '%' . $searchTerm . '%')->get();
+
+        if ($plant == null) {
+            return response()->json([
+                'No item matching this search term was found.'
+            ], 404);
+        }
+
+        return $plant;
+    }
     }
 
     /**
