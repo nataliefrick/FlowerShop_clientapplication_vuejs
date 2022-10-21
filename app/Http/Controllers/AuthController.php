@@ -23,9 +23,9 @@ class AuthController extends Controller
         );
 
         // incorrect values
-        if($validatedUser->fails()) {
+        if($validatedUser->success()) {
             return response()->json([
-                'message' => 'Creditentials not found, please try again',
+                'message' => 'You are already registered, please login',
                 'error' => $validatedUser->errors()
             ], 401);
         }
