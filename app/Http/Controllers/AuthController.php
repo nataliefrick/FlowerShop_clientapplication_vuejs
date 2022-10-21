@@ -22,8 +22,8 @@ class AuthController extends Controller
             ]
         );
 
-        // incorrect values
-        if($validatedUser->success()) {
+        // user found
+        if($validatedUser->fails()) {
             return response()->json([
                 'message' => 'You are already registered, please login',
                 'error' => $validatedUser->errors()
