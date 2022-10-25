@@ -35,7 +35,13 @@ class AboutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         // --validate incoming data
+         $request->validate([
+            'title'=> 'required',
+            'description'=> 'required'
+        ]);
+
+        return About::create($request->all());
     }
 
     /**
