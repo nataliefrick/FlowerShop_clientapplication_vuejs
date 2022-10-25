@@ -25,15 +25,7 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        // --validate incoming data
-        $request->validate([
-            'name'=> 'required',
-            'email'=> 'required',
-            'password'=> 'required'
-        ]);
-
-        return Employee::create($request->all());
-    
+        // Storing of new employees happens in AuthController
     }
 
     /**
