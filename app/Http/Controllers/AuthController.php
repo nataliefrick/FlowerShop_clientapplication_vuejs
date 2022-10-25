@@ -38,7 +38,7 @@ class AuthController extends Controller
             'password' => bcrypt($request['password']) // hash password
         ]);
 
-        $employee = Empoloyee::create([
+        $employee = Employee::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => bcrypt($request['password']) // hash password
