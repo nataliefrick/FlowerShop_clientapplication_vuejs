@@ -38,7 +38,7 @@ class AboutController extends Controller
          // --validate incoming data
          $request->validate([
             'title'=> 'required',
-            'description'=> 'required'
+            'content'=> 'required'
         ]);
 
         return About::create($request->all());
