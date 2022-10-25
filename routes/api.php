@@ -18,7 +18,6 @@ use App\Http\Controllers\AuthController;
 
 // password protected 
 Route::resource('plants', PlantController::class)->middleware('auth:sanctum');
-Route::resource('employees', EmployeeController::class)->middleware('auth:sanctum');
 Route::get('plants/search/{searchTerm}', [PlantController::class, 'searchText'])->middleware('auth:sanctum');
 Route::get('plants/lowstock/{quantity}', [PlantController::class, 'lowStock'])->middleware('auth:sanctum');
 Route::put('plants/addstock/{id}', [PlantController::class, 'update'])->middleware('auth:sanctum');

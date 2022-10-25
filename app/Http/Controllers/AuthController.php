@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
-use App\Models\Employee;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -33,12 +32,6 @@ class AuthController extends Controller
 
         // correct values: store and return a token
         $user = User::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => bcrypt($request['password']) // hash password
-        ]);
-
-        $employee = Employee::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => bcrypt($request['password']) // hash password
