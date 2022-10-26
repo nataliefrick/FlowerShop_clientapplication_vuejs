@@ -37,8 +37,6 @@ class PlantController extends Controller
      * Returns resource with quantity under a certain value
      */
     public function lowStock($quantity) {
-        // return Plant
-        // $plant = Plant::where('title', 'like',  '%' . $searchTerm . '%')->get(); //works
         $plant = Plant::where('quantity', '<',  $quantity)->get();
                 
         return $plant;
