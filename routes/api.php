@@ -18,8 +18,8 @@ use App\Http\Controllers\AboutController;
 */
 
 // password protected 
-
 Route::resource('plants', PlantController::class)->middleware('auth:sanctum');
+Route::resource('categories', CategoryController::class)->middleware('auth:sanctum');
 Route::get('plants/search/{searchTerm}', [PlantController::class, 'searchText'])->middleware('auth:sanctum');
 Route::get('plants/lowstock/{quantity}', [PlantController::class, 'lowStock'])->middleware('auth:sanctum');
 Route::put('plants/addstock/{id}', [PlantController::class, 'update'])->middleware('auth:sanctum');
