@@ -1,0 +1,12 @@
+# @hostname= https://mighty-ravine-43066.herokuapp.com/api/
+@hostname= http://127.0.0.1:8000/
+# @token=11|X3am8DA0m7iCbYmuN8smb33LOGu64BXAXELAHejG
+
+# Adding a new controller: make sure that the file is imported into the routes (api.php) file.
+
+
+GET {{hostname}}websites
+Content-Type: application/json
+
+###
+
